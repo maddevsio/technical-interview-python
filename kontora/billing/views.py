@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from customers.models import Customer
 
 
-def debt_per_customer_total(request):
+def list_debt_per_customer_total(request):
     customers = Customer.objects.all()
 
     result = []
@@ -16,3 +16,14 @@ def debt_per_customer_total(request):
         result.append(data)
 
     return JsonResponse(result, safe=False)
+
+
+def get_total_debt_by_customer_id(request, customer_id: int):
+    customer = Customer.objects.get(pk=customer_id)
+
+    total = sum(customer.debts.values_list("amount", flat=True))
+    total += sum(sum(c.debts.values_list("amount", flat=True)) for c in customer.contracts.all())
+    return JsonResponse({
+        "customer_id": customer.pk,
+        "total": total,
+    })
