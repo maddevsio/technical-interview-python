@@ -1,5 +1,7 @@
+from django.db.models import Q
 from django.http import JsonResponse
 
+from billing.models import Debt
 from customers.models import Customer
 
 
@@ -27,3 +29,22 @@ def get_total_debt_by_customer_id(request, customer_id: int):
         "customer_id": customer.pk,
         "total": total,
     })
+
+
+def get_debts_by_customer_id(request, customer_id: int):
+    debts = Debt.objects.filter(
+        Q(customer_id=customer_id) | Q(contract__customer_id=customer_id),
+    )
+
+    result = []
+    for debt in debts:
+        data = {
+            "debt_id": debt.pk,
+            "amount": float(debt.amount),
+            "contract_id": debt.contract_id,
+            "created_at": str(debt.created_at),
+            "updated_at": str(debt.created_at),
+        }
+        result.append(data)
+
+    return JsonResponse(result, safe=False)
