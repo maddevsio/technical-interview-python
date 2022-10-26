@@ -1,6 +1,10 @@
 from django.db import models
 
 
+# Provide answers
+# - Is there any problem?
+# - What should be changed?
+
 class Debt(models.Model):
     amount = models.DecimalField(max_digits=6, decimal_places=2)
     customer = models.ForeignKey(

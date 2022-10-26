@@ -5,6 +5,11 @@ from billing.models import Debt
 from customers.models import Customer
 
 
+# Comment on every view
+# - Is there any problem?
+# - What are the limitation of each view?
+
+
 def list_debt_per_customer_total(request):
     customers = Customer.objects.all()
 
