@@ -1,4 +1,4 @@
-# technical-interview-clutch
+# technical-interview-python
 Тестовое задание для собеседования на Python разработчика
 
 ## Developers
