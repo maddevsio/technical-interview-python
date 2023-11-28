@@ -1,15 +1,18 @@
 ## Описание задачи
 We need to build a SaaS product in a healthcare sector, which helps users track their sleep.
-So, we need 2 applications for users to work with:
+There are 2 applications for users to work with:
 * Mobile App
 * Web App
-Mobile app should collect data about user's sleep (duration, movement, sounds, etc.) and send them to us for:
-* Analyzing using ML models
-* Preparing stats and analytics
-* Also, Mobile App and Web App should display analytics and stats to users.
+Mobile app collects data about user's sleep (duration, movement, sounds, etc.) and sends it to the backend. Backend performs following:
+* Analyze sleep data using ML models
+* Prepare analytics on a sleep data
+* Persists analytics and raw data
+* Serves analytics to users (API endpoints, Dashboard)
 
 ## Задача
-1. 
+1. Упор делаем на бэкенд, мобильное приложение - это клиент
+2. Описать архитектуру решения
+3. Описать плюсы/минусы решения
 
 ## На что обращаем внимание:
 1. Умеет ли кандидат работать с ML-моделями (training, inference)
