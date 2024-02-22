@@ -4,7 +4,7 @@ There are 2 applications for users to work with:
 * Mobile App
 * Web App
 Mobile app collects data about user's sleep (duration, movement, sounds, etc.) and sends it to the backend. Backend performs following:
-* Analyze sleep data using ML models
+* Analyze sleep data using ML models (Input: duration, movement, sounds)
 * Prepare analytics on a sleep data
 * Persists analytics and raw data
 * Serves analytics to users (API endpoints, Dashboard)
@@ -13,6 +13,7 @@ Mobile app collects data about user's sleep (duration, movement, sounds, etc.) a
 1. Упор делаем на бэкенд, мобильное приложение - это клиент
 2. Описать архитектуру решения
 3. Описать плюсы/минусы решения
+4. Как должна выглядеть схема данных на выходе из ML-модели?
 
 ## На что обращаем внимание:
 1. Умеет ли кандидат работать с ML-моделями (training, inference)
