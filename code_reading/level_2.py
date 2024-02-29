@@ -25,3 +25,28 @@ def user_string(data: dict) -> str:
         pass
 
     return name
+
+
+def validate_data(data):
+    if isinstance(data, list):
+        for item in data:
+            if isinstance(item, dict):
+                if 'name' in item:
+                    name = item['name']
+                    if name:
+                        if len(name) < 3:
+                            raise Exception("Error: Name must be at least 3 characters long!")
+                        elif len(name) > 50:
+                            raise Exception("Error: Name cannot exceed 50 characters!")
+                        elif not name.isalpha():
+                            raise Exception("Error: Name must contain only alphabetic characters!")
+                        else:
+                            raise Exception(f"Processing name: {name}")
+                    else:
+                        raise Exception("Error: Empty name provided!")
+                else:
+                    raise Exception("Error: Name key not found in dictionary!")
+            else:
+                raise Exception("Error: Input data must be a list of dictionaries!")
+    else:
+        raise Exception("Error: Input data must be a list!")

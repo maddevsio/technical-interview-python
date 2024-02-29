@@ -17,6 +17,28 @@ def get_user_from_api(user_id: int) -> dict | None:
     return response.json()
 
 
+def calculate_salary(employee):
+    if employee.department == "Engineering":
+        if employee.experience >= 5:
+            salary = employee.base_salary * 1.2
+        else:
+            salary = employee.base_salary * 1.1
+    elif employee.department == "Marketing":
+        if employee.experience >= 3:
+            salary = employee.base_salary * 1.15
+        else:
+            salary = employee.base_salary * 1.05
+    elif employee.department == "HR":
+        if employee.experience >= 2:
+            salary = employee.base_salary * 1.1
+        else:
+            salary = employee.base_salary
+    else:
+        salary = employee.base_salary * 1.05
+
+    return salary
+
+
 def reset_user_password(user: User):
     to_hash = f"{time.time()}{user.get_username()}".encode("utf-8")
     reset_token = hashlib.md5(to_hash).hexdigest()
