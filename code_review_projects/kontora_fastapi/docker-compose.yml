@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+    env_file:
+      - .env
+    restart: on-failure
+    networks:
+      - kontora
+    volumes:
+      - ./:/app
+
+networks:
+  kontora:

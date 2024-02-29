@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "notification"
+version = "0.1.0"
+description = "TODO"
+authors = ["TODO <TODO@TODO.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+pydantic = {extras = ["dotenv"], version = "^1.10.4"}
+fastapi = "^0.91.0"
+uvicorn = "^0.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

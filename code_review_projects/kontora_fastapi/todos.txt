@@ -1,0 +1,2 @@
+- Add poetry.lock
+- Start copying the cases from the Django's kontora
